@@ -2,7 +2,7 @@
 provider "google" {
  credentials = "${file("CREDENTIALS_FILE.json")}"
  project     = "terra-gitopw"
- region      = "europe-west2"
+ region      = "europe-west1
 }
 
 // Terraform plugin for creating random ids
@@ -14,7 +14,7 @@ resource "random_id" "instance_id" {
 resource "google_compute_instance" "default" {
  name         = "flask-vm-${random_id.instance_id.hex}"
  machine_type = "f1-micro"
- zone         = "europe-west2-a"
+ zone         = "europe-west1-a"
 
  boot_disk {
    initialize_params {
