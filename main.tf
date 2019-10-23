@@ -1,8 +1,8 @@
 // Configure the Google Cloud provider
 provider "google" {
  credentials = "${file("CREDENTIALS_FILE.json")}"
- project     = "flask-app-211918"
- region      = "us-west1"
+ project     = "terra-gitopw"
+ region      = "europe-west2"
 }
 
 // Terraform plugin for creating random ids
@@ -14,7 +14,7 @@ resource "random_id" "instance_id" {
 resource "google_compute_instance" "default" {
  name         = "flask-vm-${random_id.instance_id.hex}"
  machine_type = "f1-micro"
- zone         = "us-west1-a"
+ zone         = "europe-west2-a"
 
  boot_disk {
    initialize_params {
